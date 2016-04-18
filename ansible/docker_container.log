@@ -1,0 +1,511 @@
+DEBUG:AnsibleDockerClient:Getting credentials
+DEBUG:AnsibleDockerClient:connection params:
+DEBUG:AnsibleDockerClient:  tls: False
+DEBUG:AnsibleDockerClient:  cacert_path: None
+DEBUG:AnsibleDockerClient:  ssl_version: None
+DEBUG:AnsibleDockerClient:  tls_hostname: localhost
+DEBUG:AnsibleDockerClient:  docker_host: unix://var/run/docker.sock
+DEBUG:AnsibleDockerClient:  tls_verify: False
+DEBUG:AnsibleDockerClient:  key_path: None
+DEBUG:AnsibleDockerClient:  timeout: 60
+DEBUG:AnsibleDockerClient:  cert_path: None
+DEBUG:AnsibleDockerClient:  api_version: 1.22
+DEBUG:docker.auth.auth:Found 'auths' section
+DEBUG:docker.auth.auth:Found entry (registry=u'https://index.docker.io/v1/', username=u'jtanner0')
+DEBUG:TaskParameters:tty: False
+DEBUG:TaskParameters:keep_volumes: True
+DEBUG:TaskParameters:links: None
+DEBUG:TaskParameters:trust_image_content: False
+DEBUG:TaskParameters:log_path: docker_container.log
+DEBUG:TaskParameters:ssl_version: None
+DEBUG:TaskParameters:image: flaskapp
+DEBUG:TaskParameters:recreate: False
+DEBUG:TaskParameters:command: None
+DEBUG:TaskParameters:memory_reservation: None
+DEBUG:TaskParameters:ipc_mode: None
+DEBUG:TaskParameters:paused: False
+DEBUG:TaskParameters:docker_host: None
+DEBUG:TaskParameters:dns_servers: None
+DEBUG:TaskParameters:dns_search_domains: None
+DEBUG:TaskParameters:security_opts: None
+DEBUG:TaskParameters:force_kill: False
+DEBUG:TaskParameters:pid_mode: host
+DEBUG:TaskParameters:networks: None
+DEBUG:TaskParameters:cpu_quota: None
+DEBUG:TaskParameters:filter_logger: False
+DEBUG:TaskParameters:cacert_path: None
+DEBUG:TaskParameters:cpuset_mems: None
+DEBUG:TaskParameters:uts: None
+DEBUG:TaskParameters:user: None
+DEBUG:TaskParameters:hostname: None
+DEBUG:TaskParameters:capabilities: None
+DEBUG:TaskParameters:state: started
+DEBUG:TaskParameters:entrypoint: None
+DEBUG:TaskParameters:memory_swap: None
+DEBUG:TaskParameters:env: None
+DEBUG:TaskParameters:memory: None
+DEBUG:TaskParameters:volumes_from: None
+DEBUG:TaskParameters:published_ports: None
+DEBUG:TaskParameters:log_options: None
+DEBUG:TaskParameters:volumes: None
+DEBUG:TaskParameters:privileged: False
+DEBUG:TaskParameters:api_version: None
+DEBUG:TaskParameters:key_path: None
+DEBUG:TaskParameters:exposed_ports: None
+DEBUG:TaskParameters:read_only: False
+DEBUG:TaskParameters:labels: None
+DEBUG:TaskParameters:log_driver: json-file
+DEBUG:TaskParameters:oom_killer: None
+DEBUG:TaskParameters:shm_size: None
+DEBUG:TaskParameters:mac_address: None
+DEBUG:TaskParameters:memory_swappiness: None
+DEBUG:TaskParameters:kill_signal: None
+DEBUG:TaskParameters:network_mode: None
+DEBUG:TaskParameters:tls_hostname: None
+DEBUG:TaskParameters:volume_driver: None
+DEBUG:TaskParameters:kernel_memory: None
+DEBUG:TaskParameters:restart_retries: 0
+DEBUG:TaskParameters:groups: None
+DEBUG:TaskParameters:cert_path: None
+DEBUG:TaskParameters:detach: True
+DEBUG:TaskParameters:restart: False
+DEBUG:TaskParameters:tls: None
+DEBUG:TaskParameters:pull: False
+DEBUG:TaskParameters:name: myapp-flask
+DEBUG:TaskParameters:tls_verify: None
+DEBUG:TaskParameters:log_mode: file
+DEBUG:TaskParameters:restart_policy: None
+DEBUG:TaskParameters:devices: None
+DEBUG:TaskParameters:etc_hosts: None
+DEBUG:TaskParameters:stop_signal: None
+DEBUG:TaskParameters:dns_opts: None
+DEBUG:TaskParameters:cpuset_cpus: None
+DEBUG:TaskParameters:blkio_weight: None
+DEBUG:TaskParameters:timeout: None
+DEBUG:TaskParameters:debug: True
+DEBUG:TaskParameters:stop_timeout: None
+DEBUG:TaskParameters:cpu_period: None
+DEBUG:TaskParameters:cpu_shares: None
+DEBUG:TaskParameters:ulimits: None
+DEBUG:TaskParameters:interactive: False
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.22/containers/json?all=1&limit=-1&trunc_cmd=0&size=0 HTTP/1.1" 200 None
+DEBUG:AnsibleDockerClient:testing container: [u'/some-redis']
+DEBUG:AnsibleDockerClient:testing container: [u'/clever_golick']
+DEBUG:AnsibleDockerClient:testing container: [u'/grave_sammet']
+DEBUG:AnsibleDockerClient:testing container: [u'/compose_web_1']
+DEBUG:AnsibleDockerClient:testing container: [u'/compose_redis_1']
+DEBUG:AnsibleDockerClient:testing container: [u'/fervent_heisenberg']
+DEBUG:AnsibleDockerClient:testing container: [u'/small_knuth']
+DEBUG:Container:null
+DEBUG:ContainerManager:Fetch image flaskapp
+DEBUG:docker.auth.auth:Found 'auths' section
+DEBUG:docker.auth.auth:Found entry (registry=u'https://index.docker.io/v1/', username=u'jtanner0')
+DEBUG:docker.auth.auth:Looking for auth entry for 'docker.io'
+DEBUG:docker.auth.auth:Found u'https://index.docker.io/v1/'
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.22/images/json?filter=flaskapp%3ANone&only_ids=0&all=0 HTTP/1.1" 200 3
+DEBUG:ContainerManager:Pull the image.
+DEBUG:AnsibleDockerClient:Pulling image flaskapp:None
+DEBUG:docker.api.image:Looking for auth config
+DEBUG:docker.auth.auth:Looking for auth entry for 'docker.io'
+DEBUG:docker.auth.auth:Found u'https://index.docker.io/v1/'
+DEBUG:docker.api.image:Found auth config
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.22/images/create?fromImage=flaskapp HTTP/1.1" 200 None
+DEBUG:AnsibleDockerClient:{
+    "status": "Pulling repository docker.io/library/flaskapp"
+}
+DEBUG:AnsibleDockerClient:{
+    "error": "Error: image library/flaskapp not found",
+    "errorDetail": {
+        "message": "Error: image library/flaskapp not found"
+    }
+}
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.22/images/json?filter=flaskapp%3ANone&only_ids=0&all=0 HTTP/1.1" 200 3
+DEBUG:ContainerManager:image
+DEBUG:ContainerManager:null
+DEBUG:ContainerManager:No container found
+DEBUG:ContainerManager:create container
+DEBUG:ContainerManager:{
+    "detach": true,
+    "host_config": {
+        "LogConfig": {
+            "Config": {},
+            "Type": "json-file"
+        },
+        "NetworkMode": "default",
+        "PidMode": "host",
+        "ReadonlyRootfs": false
+    },
+    "image": "flaskapp",
+    "name": "myapp-flask",
+    "stdin_open": false,
+    "tty": false
+}
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.22/containers/create?name=myapp-flask HTTP/1.1" 201 90
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.22/containers/json?all=1&limit=-1&trunc_cmd=0&size=0 HTTP/1.1" 200 None
+DEBUG:AnsibleDockerClient:testing container: [u'/myapp-flask']
+DEBUG:AnsibleDockerClient:Inspecting container Id 8dd762dd97c37906d70049e7c7bb3e544b58e19c5d50253e1edaa21194c2311c
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.22/containers/8dd762dd97c37906d70049e7c7bb3e544b58e19c5d50253e1edaa21194c2311c/json HTTP/1.1" 200 None
+DEBUG:AnsibleDockerClient:Completed container inspection
+DEBUG:Container:{
+    "AppArmorProfile": "",
+    "Args": [
+        "-c",
+        "python /code/app.py"
+    ],
+    "Config": {
+        "AttachStderr": false,
+        "AttachStdin": false,
+        "AttachStdout": false,
+        "Cmd": [
+            "/bin/sh",
+            "-c",
+            "python /code/app.py"
+        ],
+        "Domainname": "",
+        "Entrypoint": null,
+        "Env": [
+            "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+            "LANG=C.UTF-8",
+            "GPG_KEY=C01E1CAD5EA2C4F0B8E3571504C367C218ADD4FF",
+            "PYTHON_VERSION=2.7.11",
+            "PYTHON_PIP_VERSION=8.1.1"
+        ],
+        "Hostname": "8dd762dd97c3",
+        "Image": "flaskapp",
+        "Labels": {},
+        "OnBuild": null,
+        "OpenStdin": false,
+        "StdinOnce": false,
+        "Tty": false,
+        "User": "",
+        "Volumes": null,
+        "WorkingDir": "/code"
+    },
+    "Created": "2016-04-15T23:10:15.574574557Z",
+    "Driver": "devicemapper",
+    "ExecIDs": null,
+    "GraphDriver": {
+        "Data": {
+            "DeviceId": "484",
+            "DeviceName": "docker-253:1-68045685-cca4fd461cc51042baf545421cbc77e305cc7ff3e4da8783ab64101a2d1b6bac",
+            "DeviceSize": "107374182400"
+        },
+        "Name": "devicemapper"
+    },
+    "HostConfig": {
+        "AutoRemove": false,
+        "Binds": null,
+        "BlkioBps": 0,
+        "BlkioDeviceReadBps": null,
+        "BlkioDeviceReadIOps": null,
+        "BlkioDeviceWriteBps": null,
+        "BlkioDeviceWriteIOps": null,
+        "BlkioIOps": 0,
+        "BlkioWeight": 0,
+        "BlkioWeightDevice": null,
+        "CapAdd": null,
+        "CapDrop": null,
+        "Cgroup": "",
+        "CgroupParent": "",
+        "ConsoleSize": [
+            0,
+            0
+        ],
+        "ContainerIDFile": "",
+        "CpuCount": 0,
+        "CpuPercent": 0,
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpuShares": 0,
+        "CpusetCpus": "",
+        "CpusetMems": "",
+        "Devices": null,
+        "DiskQuota": 0,
+        "Dns": null,
+        "DnsOptions": null,
+        "DnsSearch": null,
+        "ExtraHosts": null,
+        "GroupAdd": null,
+        "IpcMode": "",
+        "Isolation": "",
+        "KernelMemory": 0,
+        "Links": null,
+        "LogConfig": {
+            "Config": {},
+            "Type": "json-file"
+        },
+        "Memory": 0,
+        "MemoryReservation": 0,
+        "MemorySwap": 0,
+        "MemorySwappiness": -1,
+        "NetworkMode": "default",
+        "OomKillDisable": false,
+        "OomScoreAdj": 0,
+        "PidMode": "host",
+        "PidsLimit": 0,
+        "PortBindings": null,
+        "Privileged": false,
+        "PublishAllPorts": false,
+        "ReadonlyRootfs": false,
+        "RestartPolicy": {
+            "MaximumRetryCount": 0,
+            "Name": ""
+        },
+        "SandboxSize": 0,
+        "SecurityOpt": [
+            "label:disable"
+        ],
+        "ShmSize": 67108864,
+        "StorageOpt": null,
+        "UTSMode": "",
+        "Ulimits": null,
+        "UsernsMode": "",
+        "VolumeDriver": "",
+        "VolumesFrom": null
+    },
+    "HostnamePath": "",
+    "HostsPath": "",
+    "Id": "8dd762dd97c37906d70049e7c7bb3e544b58e19c5d50253e1edaa21194c2311c",
+    "Image": "sha256:a582b2b52190c1d084892cb1537a73398b7bb90d8b1977446b00036b3ab16a17",
+    "LogPath": "",
+    "MountLabel": "",
+    "Mounts": [],
+    "Name": "/myapp-flask",
+    "NetworkSettings": {
+        "Bridge": "",
+        "EndpointID": "",
+        "Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "HairpinMode": false,
+        "IPAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "LinkLocalIPv6Address": "",
+        "LinkLocalIPv6PrefixLen": 0,
+        "MacAddress": "",
+        "Networks": {
+            "bridge": {
+                "Aliases": null,
+                "EndpointID": "",
+                "Gateway": "",
+                "GlobalIPv6Address": "",
+                "GlobalIPv6PrefixLen": 0,
+                "IPAMConfig": null,
+                "IPAddress": "",
+                "IPPrefixLen": 0,
+                "IPv6Gateway": "",
+                "Links": null,
+                "MacAddress": "",
+                "NetworkID": ""
+            }
+        },
+        "Ports": null,
+        "SandboxID": "",
+        "SandboxKey": "",
+        "SecondaryIPAddresses": null,
+        "SecondaryIPv6Addresses": null
+    },
+    "Path": "/bin/sh",
+    "ProcessLabel": "",
+    "ResolvConfPath": "",
+    "RestartCount": 0,
+    "State": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 0,
+        "Restarting": false,
+        "Running": false,
+        "StartedAt": "0001-01-01T00:00:00Z",
+        "Status": "created"
+    }
+}
+DEBUG:ContainerManager:start container 8dd762dd97c37906d70049e7c7bb3e544b58e19c5d50253e1edaa21194c2311c
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.22/containers/8dd762dd97c37906d70049e7c7bb3e544b58e19c5d50253e1edaa21194c2311c/start HTTP/1.1" 204 0
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.22/containers/json?all=1&limit=-1&trunc_cmd=0&size=0 HTTP/1.1" 200 None
+DEBUG:AnsibleDockerClient:testing container: [u'/myapp-flask']
+DEBUG:AnsibleDockerClient:Inspecting container Id 8dd762dd97c37906d70049e7c7bb3e544b58e19c5d50253e1edaa21194c2311c
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.22/containers/8dd762dd97c37906d70049e7c7bb3e544b58e19c5d50253e1edaa21194c2311c/json HTTP/1.1" 200 None
+DEBUG:AnsibleDockerClient:Completed container inspection
+DEBUG:Container:{
+    "AppArmorProfile": "",
+    "Args": [
+        "-c",
+        "python /code/app.py"
+    ],
+    "Config": {
+        "AttachStderr": false,
+        "AttachStdin": false,
+        "AttachStdout": false,
+        "Cmd": [
+            "/bin/sh",
+            "-c",
+            "python /code/app.py"
+        ],
+        "Domainname": "",
+        "Entrypoint": null,
+        "Env": [
+            "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+            "LANG=C.UTF-8",
+            "GPG_KEY=C01E1CAD5EA2C4F0B8E3571504C367C218ADD4FF",
+            "PYTHON_VERSION=2.7.11",
+            "PYTHON_PIP_VERSION=8.1.1"
+        ],
+        "Hostname": "8dd762dd97c3",
+        "Image": "flaskapp",
+        "Labels": {},
+        "OnBuild": null,
+        "OpenStdin": false,
+        "StdinOnce": false,
+        "Tty": false,
+        "User": "",
+        "Volumes": null,
+        "WorkingDir": "/code"
+    },
+    "Created": "2016-04-15T23:10:15.574574557Z",
+    "Driver": "devicemapper",
+    "ExecIDs": null,
+    "GraphDriver": {
+        "Data": {
+            "DeviceId": "484",
+            "DeviceName": "docker-253:1-68045685-cca4fd461cc51042baf545421cbc77e305cc7ff3e4da8783ab64101a2d1b6bac",
+            "DeviceSize": "107374182400"
+        },
+        "Name": "devicemapper"
+    },
+    "HostConfig": {
+        "AutoRemove": false,
+        "Binds": null,
+        "BlkioBps": 0,
+        "BlkioDeviceReadBps": null,
+        "BlkioDeviceReadIOps": null,
+        "BlkioDeviceWriteBps": null,
+        "BlkioDeviceWriteIOps": null,
+        "BlkioIOps": 0,
+        "BlkioWeight": 0,
+        "BlkioWeightDevice": null,
+        "CapAdd": null,
+        "CapDrop": null,
+        "Cgroup": "",
+        "CgroupParent": "",
+        "ConsoleSize": [
+            0,
+            0
+        ],
+        "ContainerIDFile": "",
+        "CpuCount": 0,
+        "CpuPercent": 0,
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpuShares": 0,
+        "CpusetCpus": "",
+        "CpusetMems": "",
+        "Devices": null,
+        "DiskQuota": 0,
+        "Dns": null,
+        "DnsOptions": null,
+        "DnsSearch": null,
+        "ExtraHosts": null,
+        "GroupAdd": null,
+        "IpcMode": "",
+        "Isolation": "",
+        "KernelMemory": 0,
+        "Links": null,
+        "LogConfig": {
+            "Config": {},
+            "Type": "json-file"
+        },
+        "Memory": 0,
+        "MemoryReservation": 0,
+        "MemorySwap": 0,
+        "MemorySwappiness": -1,
+        "NetworkMode": "default",
+        "OomKillDisable": false,
+        "OomScoreAdj": 0,
+        "PidMode": "host",
+        "PidsLimit": 0,
+        "PortBindings": null,
+        "Privileged": false,
+        "PublishAllPorts": false,
+        "ReadonlyRootfs": false,
+        "RestartPolicy": {
+            "MaximumRetryCount": 0,
+            "Name": ""
+        },
+        "SandboxSize": 0,
+        "SecurityOpt": [
+            "label:disable"
+        ],
+        "ShmSize": 67108864,
+        "StorageOpt": null,
+        "UTSMode": "",
+        "Ulimits": null,
+        "UsernsMode": "",
+        "VolumeDriver": "",
+        "VolumesFrom": null
+    },
+    "HostnamePath": "/var/lib/docker/containers/8dd762dd97c37906d70049e7c7bb3e544b58e19c5d50253e1edaa21194c2311c/hostname",
+    "HostsPath": "/var/lib/docker/containers/8dd762dd97c37906d70049e7c7bb3e544b58e19c5d50253e1edaa21194c2311c/hosts",
+    "Id": "8dd762dd97c37906d70049e7c7bb3e544b58e19c5d50253e1edaa21194c2311c",
+    "Image": "sha256:a582b2b52190c1d084892cb1537a73398b7bb90d8b1977446b00036b3ab16a17",
+    "LogPath": "/var/lib/docker/containers/8dd762dd97c37906d70049e7c7bb3e544b58e19c5d50253e1edaa21194c2311c/8dd762dd97c37906d70049e7c7bb3e544b58e19c5d50253e1edaa21194c2311c-json.log",
+    "MountLabel": "",
+    "Mounts": [],
+    "Name": "/myapp-flask",
+    "NetworkSettings": {
+        "Bridge": "",
+        "EndpointID": "485c7a898c9a8be29a6304c0395c7ea25464fc00fd642e49c7a5bba1900853af",
+        "Gateway": "172.17.0.1",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "HairpinMode": false,
+        "IPAddress": "172.17.0.2",
+        "IPPrefixLen": 16,
+        "IPv6Gateway": "",
+        "LinkLocalIPv6Address": "",
+        "LinkLocalIPv6PrefixLen": 0,
+        "MacAddress": "02:42:ac:11:00:02",
+        "Networks": {
+            "bridge": {
+                "Aliases": null,
+                "EndpointID": "485c7a898c9a8be29a6304c0395c7ea25464fc00fd642e49c7a5bba1900853af",
+                "Gateway": "172.17.0.1",
+                "GlobalIPv6Address": "",
+                "GlobalIPv6PrefixLen": 0,
+                "IPAMConfig": null,
+                "IPAddress": "172.17.0.2",
+                "IPPrefixLen": 16,
+                "IPv6Gateway": "",
+                "Links": null,
+                "MacAddress": "02:42:ac:11:00:02",
+                "NetworkID": "dabd5987b843e322f21fe97f343ce4a279cc21658e634231953298974ffa28ff"
+            }
+        },
+        "Ports": {},
+        "SandboxID": "644b3aaff03c78da91cb46d38da0277a354fb403c9143fcd477dbabe97b8d38e",
+        "SandboxKey": "/var/run/docker/netns/644b3aaff03c",
+        "SecondaryIPAddresses": null,
+        "SecondaryIPv6Addresses": null
+    },
+    "Path": "/bin/sh",
+    "ProcessLabel": "",
+    "ResolvConfPath": "/var/lib/docker/containers/8dd762dd97c37906d70049e7c7bb3e544b58e19c5d50253e1edaa21194c2311c/resolv.conf",
+    "RestartCount": 0,
+    "State": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 31219,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2016-04-15T23:10:16.069469756Z",
+        "Status": "running"
+    }
+}

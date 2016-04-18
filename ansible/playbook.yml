@@ -1,0 +1,50 @@
+- name: prepare the images
+  hosts: localhost
+  gather_facts: False
+  connection: local
+  vars:
+    rebuild: False # -e 'rebuild=true' to override
+  tasks:
+
+    - name: fetch the redis image
+      docker_image: name=redis state=present
+
+    - name: Create the build dir
+      file: path=/tmp/buildhere state=directory
+    
+    - name: Copy the dockerfile to the build_path
+      copy: src=Dockerfile dest=/tmp/buildhere/Dockerfile  
+
+    - name: Copy the code to the build path
+      copy: src=code dest=/tmp/buildhere/ 
+
+    - name: remove old builds
+      docker_image: name=flaskapp state=absent
+      when: rebuild
+
+    - name: build the flask image
+      docker_image: dockerfile=Dockerfile build_path=/tmp/buildhere name=flaskapp
+
+
+- name: run the stack
+  hosts: localhost
+  gather_facts: False
+  connection: local
+  tasks:
+
+    #- name: start the redis container
+    #  docker_container: 
+    #    name: myapp-redis 
+    #    image: redis 
+    #    state: started 
+    #    detach: yes
+    #    debug: yes
+            
+    - name: start the flask container
+      docker_container: 
+        name: myapp-flask
+        image: flaskapp
+        state: started 
+        debug: yes
+            
+
